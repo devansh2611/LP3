@@ -1,8 +1,22 @@
+from random import randint
 def quicksort(arr,left,right):
     if left<right:
         partition_pos=partition(arr,left,right)
         quicksort(arr,left,partition_pos-1)
         quicksort(arr,partition_pos+1,right)
+
+def quickSort(arr,left,right):
+    if left<right:
+        partition_pos=meh(arr,left,right)
+        quicksort(arr,left,partition_pos-1)
+        quicksort(arr,partition_pos+1,right)
+
+
+    
+def meh(arr,l,r):
+    n= randint(l,r)
+    arr[r],arr[n]=arr[n],arr[r]
+    return partition(arr,l,r)
     
 
 def partition(arr,left,right):
@@ -24,5 +38,5 @@ def partition(arr,left,right):
     return i
 
 arr=[3,5,1,2,4,6,7,8,5,4,3,21]
-quicksort(arr,0,len(arr)-1)
+quickSort(arr,0,len(arr)-1)
 print(arr)
